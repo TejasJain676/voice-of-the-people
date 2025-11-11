@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facts That Matter</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="navbar">
+<div class="container nav-inner">
+<a href="index.html" class="logo">Voice<span>Of</span>The<span>People</span></a>
+<nav class="nav-buttons">
+<a class="nav-btn" href="index.html">Home</a>
+<a class="nav-btn" href="government.html">Government Info</a>
+<a class="nav-btn" href="citizens.html">Civic Duties</a>
+<a class="nav-btn" href="voice.html">Raise Voice</a>
+<a class="nav-btn active" href="facts.html">Facts That Matter</a>
+<a class="nav-btn" href="contact.html">Contact</a>
+</nav>
+</div>
+</header>
+
+<main class="container facts-content">
+<h1>Facts That Matter</h1>
+<p class="lead">Live indicators (fetched once on page load). Last update: <span id="last-updated">--</span></p>
+
+<section class="dashboard">
+<div class="card" id="card-aqi_delhi" onclick="openCard('aqi_delhi')">
+<div class="card-top"><div class="num" id="num-aqi_delhi">--</div></div>
+<div class="card-body"><h3>AQI — Delhi</h3><p class="muted">Air quality index for Delhi.</p></div>
+</div>
+
+<div class="card" id="card-aqi_mumbai" onclick="openCard('aqi_mumbai')">
+<div class="card-top"><div class="num" id="num-aqi_mumbai">--</div></div>
+<div class="card-body"><h3>AQI — Mumbai</h3><p class="muted">Air quality index for Mumbai.</p></div>
+</div>
+
+<div class="card" id="card-aqi_kolkata" onclick="openCard('aqi_kolkata')">
+<div class="card-top"><div class="num" id="num-aqi_kolkata">--</div></div>
+<div class="card-body"><h3>AQI — Kolkata</h3><p class="muted">Air quality index for Kolkata.</p></div>
+</div>
+
+<div class="card" id="card-aqi_bengaluru" onclick="openCard('aqi_bengaluru')">
+<div class="card-top"><div class="num" id="num-aqi_bengaluru">--</div></div>
+<div class="card-body"><h3>AQI — Bengaluru</h3><p class="muted">Air quality index for Bengaluru.</p></div>
+</div>
+
+<div class="card" id="card-aqi_chennai" onclick="openCard('aqi_chennai')">
+<div class="card-top"><div class="num" id="num-aqi_chennai">--</div></div>
+<div class="card-body"><h3>AQI — Chennai</h3><p class="muted">Air quality index for Chennai.</p></div>
+</div>
+
+<div class="card" id="card-gdp" onclick="openCard('gdp')">
+<div class="card-top"><div class="num" id="num-gdp">--</div></div>
+<div class="card-body"><h3>GDP per Capita (USD)</h3><p class="muted">India’s GDP per capita.</p></div>
+</div>
+
+<div class="card" id="card-happiness" onclick="openCard('happiness')">
+<div class="card-top"><div class="num" id="num-happiness">126/143</div></div>
+<div class="card-body"><h3>World Happiness Rank</h3><p class="muted">Well-being indicator.</p></div>
+</div>
+</section>
+</main>
+
+<div id="modal" class="modal" hidden>
+<div class="modal-content">
+<button class="modal-close" onclick="closeModal()">✕</button>
+<div id="modal-body"></div>
+</div>
+</div>
+
+<footer class="footer">
+<div class="tricolor"></div>
+<div class="container footer-inner">
+<p>Designed by the Students of SNJB College of Engineering, Chandwad 🇮🇳</p>
+<p>© 2025 Voice of the People — Youth for Change</p>
+</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

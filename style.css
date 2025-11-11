@@ -1,0 +1,39 @@
+:root {
+  --saffron:#FF9933;
+  --green:#0E9B4A;
+  --navy:#0A1D37;
+  --muted:#6b7280;
+  --bg:#fff;
+}
+*{box-sizing:border-box}
+body{font-family:Inter,Arial,sans-serif;margin:0;background:var(--bg);color:var(--navy)}
+.container{max-width:1100px;margin:0 auto;padding:20px}
+.navbar{position:sticky;top:0;background:linear-gradient(90deg,var(--navy),#05213a);padding:10px 0}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 20px}
+.logo{font-weight:800;color:white}.logo span{color:var(--saffron)}
+.nav-buttons{display:flex;gap:10px}.nav-btn{background:transparent;color:rgba(255,255,255,0.95);padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:700}
+.nav-btn:hover{background:rgba(255,255,255,0.06)}.nav-btn.active{background:rgba(255,255,255,0.06)}
+.btn{padding:12px 18px;border-radius:12px;text-decoration:none;font-weight:800;color:white;display:inline-block;margin-right:10px}.btn.saffron{background:var(--saffron)}.btn.green{background:var(--green)}
+.hero-bg{padding:40px 0;background:linear-gradient(180deg,rgba(255,153,51,0.05),transparent)}
+.hero-content{display:flex;gap:24px;align-items:center}
+.hero-left h1{font-size:32px;margin:0}
+.lead{color:var(--muted)}
+.three-cols{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+.box{flex:1;padding:12px;background:#fff;border-radius:10px;box-shadow:0 8px 20px rgba(2,6,23,0.04)}
+.dashboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+.card{background:linear-gradient(180deg,#0A1D37,#05213a);color:white;padding:16px;border-radius:12px;cursor:pointer}
+.card .num{font-weight:900;color:var(--saffron)}
+..modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000; /* ensure above all content */
+}
+.modal-content{background:#fff;padding:16px;border-radius:10px;max-width:400px;width:90%;position:relative}
+.modal-close{position:absolute;top:8px;right:8px;background:none;border:none;font-size:20px;cursor:pointer}
+.tricolor{height:6px;background:linear-gradient(90deg,var(--saffron),#fff,var(--green))}
+.footer{padding:20px 0;text-align:center;color:var(--muted)}
+@media(max-width:900px){.hero-content{flex-direction:column}}
