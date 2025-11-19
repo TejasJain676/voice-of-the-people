@@ -62,6 +62,59 @@
 <br>
 <h3>Note:</h3> The concerned department is legally required to respond within 30 days. If you do not receive a satisfactory reply, you can file a First Appeal through the same portal.</p></div>
 <div class="box"><h4>Community Action</h4><p>Community Action isn't just a nice idea—it's your power in motion! It's the moment when you and your neighbors stop waiting for change and start building it yourselves. By stepping up together, you can solve local problems that no single person could tackle, whether it’s making your streets safer with a neighborhood watch or ensuring every kid has food through a local drive. When you share your time and skills, you're not just volunteering; you're weaving a stronger, warmer fabric for your whole area. This collective spirit doesn't just fix things; it gives everyone a voice and a stake in the future. Be the spark: Organize, connect, and let your united community action be the unstoppable force that turns your neighborhood dreams into reality!</p></div>
+<section id="report-issue" class="report-issue-section">
+  <h2>Report a Local Issue</h2>
+  <p>Submit genuine issues with proper details. After submission we will prepare an official complaint draft for your convenience.</p>
+
+  <form id="issueForm" enctype="multipart/form-data">
+    <label>Full Name *</label>
+    <input type="text" name="name" id="name" required placeholder="Enter your full name">
+
+    <label>Contact Number (optional)</label>
+    <input type="text" name="contact" id="contact" placeholder="Contact number">
+
+    <label>Your Area / Locality *</label>
+    <input type="text" name="area" id="area" required placeholder="Eg: Ward 12, Chandwad">
+
+    <label>City *</label>
+    <input type="text" name="city" id="city" required placeholder="Eg: Nashik, Pune, Mumbai">
+
+    <label>Type of Issue *</label>
+    <select name="issueType" id="issueType" required>
+      <option value="">Select issue</option>
+      <option>Street Light Not Working</option>
+      <option>Garbage / Cleanliness</option>
+      <option>Road Damage / Potholes</option>
+      <option>Water Issue</option>
+      <option>Sewage / Drainage</option>
+      <option>Public Safety</option>
+      <option>Other</option>
+    </select>
+
+    <label>Description *</label>
+    <textarea name="description" id="description" required placeholder="Explain the issue clearly..."></textarea>
+
+    <label>Upload Image (required)</label>
+    <input type="file" name="image" id="image" accept="image/*" required>
+
+    <button type="submit" class="btn saffron">Submit</button>
+  </form>
+
+  <!-- Popup -->
+  <div id="issuePopup" class="popup" style="display:none;">
+    <div class="popup-inner">
+      <button id="popupClose" class="popup-close">✕</button>
+      <h3>Your Complaint Draft is Ready</h3>
+      <pre id="draftText" style="white-space:pre-wrap; max-height:320px; overflow:auto; background:#f4f4f4; padding:12px; border-radius:6px;"></pre>
+      <div style="margin-top:12px;">
+        <button id="copyDraft" class="btn green">Copy Draft</button>
+        <button id="downloadPdf" class="btn saffron">Download PDF</button>
+        <button id="gotoPortal" class="btn">Proceed to Official Portal</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 </div>
 </main>
 
@@ -75,6 +128,7 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
