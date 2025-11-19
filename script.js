@@ -44,5 +44,53 @@ async function updateLive(){
   for(const key in cities){const aqi=await fetchAQI(cities[key]);if(aqi!==null){const el=document.getElementById('num-'+key);if(el)el.textContent=aqi;modalData[key].value=aqi;}}
   const gdp=await fetchGDP();if(gdp!==null){const el=document.getElementById('num-gdp');if(el)el.textContent=gdp;modalData['gdp'].value=gdp;}
 }
+// Submit handling (append to your existing script.js or import)
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('issueForm');
+  const popup = document.getElementById('issuePopup');
+  const draftEl = document.getElementById('draftText');
+  const copyBtn = document.getElementById('copyDraft');
+  const downloadBtn = document.getElementById('downloadPdf');
+  const gotoBtn = document.getElementById('gotoPortal');
+  const closeBtn = document.getElementById('popupClose');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    // Simple client-side checks
+    if (!fd.get('name') || !fd.get('area') || !fd.get('city') || !fd.get('description') || !fd.get('image')) {
+      alert('Please fill all required fields (name, area, city, description, image).');
+      return;
+    }
+
+    // Post to server endpoint
+    try {
+      const res = await fetch('/api/submit-issue', { method:'POST', body: fd });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || 'Submit error');
+
+      // Show draft in popup
+      draftEl.textContent = data.draftText;
+      popup.style.display = 'flex';
+
+      // set actions
+      copyBtn.onclick = () => {
+        navigator.clipboard.writeText(data.draftText).then(()=>alert('Draft copied to clipboard.'));
+      };
+      downloadBtn.onclick = () => {
+        window.open(`/api/issue-pdf/${data.id}`, '_blank');
+      };
+      gotoBtn.onclick = () => {
+        // open mapped portal in new tab
+        window.open(data.portalUrl, '_blank');
+      };
+    } catch (err) {
+      alert('Error submitting issue: ' + err.message);
+    }
+  });
+
+  closeBtn.onclick = () => popup.style.display = 'none';
+});
 
 window.onload=updateLive;
+
