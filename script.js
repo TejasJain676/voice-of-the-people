@@ -73,6 +73,10 @@ async function updateLive() {
   }
 }
 
+function closePdfPopup() {
+  document.getElementById('pdfPopup').style.display = 'none';
+}
+
 // ===================== FORM SUBMISSION (FIXED) =====================
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('issueForm');
@@ -109,7 +113,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      alert('✅ Complaint submitted successfully!');
+      const popup = document.getElementById('pdfPopup');
+      const link = document.getElementById('pdfDownloadLink');
+
+      link.href = data.pdfUrl;
+      popup.style.display = 'flex';
+
       form.reset();
 
     } catch {
@@ -119,3 +128,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 window.onload = updateLive;
+
