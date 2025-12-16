@@ -124,5 +124,39 @@ Submit verified local issues. A structured complaint PDF will be generated for o
 <!-- ✅ ONLY ONE SCRIPT FILE -->
 <script src="script.js"></script>
 
+<!-- PDF SUCCESS POPUP -->
+<div id="pdfPopup" style="
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+">
+  <div style="
+    background:#fff;
+    padding:25px;
+    max-width:400px;
+    border-radius:8px;
+    text-align:center;
+  ">
+    <h2>✅ Complaint Draft Ready</h2>
+    <p>
+      Your complaint has been drafted successfully.<br>
+      Download the official PDF and submit it on the government portal.
+    </p>
+
+    <a id="pdfDownloadLink" href="#" target="_blank" class="btn saffron">
+      Download Complaint PDF
+    </a>
+
+    <br><br>
+    <button onclick="closePdfPopup()">Close</button>
+  </div>
+</div>
+
+  
 </body>
 </html>
+
