@@ -46,6 +46,10 @@ async function updateLive(){
 }
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('issueForm');
+  const popup = document.getElementById('issuePopup');
+  const draftEl = document.getElementById('draftText');
+  const downloadBtn = document.getElementById('downloadPdf');
+  const closeBtn = document.getElementById('popupClose');
 
   if (!form) return;
 
@@ -79,14 +83,29 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      alert('✅ Complaint submitted successfully!');
-      form.reset();
+      // Show popup
+  draftEl.textContent = "Your complaint has been drafted and submitted successfully.\n\nYou can now download the official PDF complaint.";
+
+// Attach PDF download
+  downloadBtn.onclick = () => {
+    window.open(data.pdfUrl, '_blank');
+  };
+
+  popup.style.display = 'flex';
+  form.reset();
+
     } catch (err) {
       alert('❌ Cannot connect to server');
     }
+
+    closeBtn.onclick = () => {
+    popup.style.display = 'none';
+  };
+
   });
 });
 
 window.onload=updateLive;
+
 
 
