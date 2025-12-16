@@ -53,17 +53,14 @@
 <!-- ===================== RTI ===================== -->
 <div class="box">
 <h4>RTI Application</h4>
-
 <p>
 RTI empowers citizens to seek information from government authorities.
 Submit RTI applications online through official portals of Central or State governments.
 </p>
-
 <p>
 After submitting the application and paying the ₹10 fee, you receive a registration number
 which can be used to track the status. Authorities must reply within 30 days.
 </p>
-
 <p>
 RTI ensures transparency, accountability, and citizen participation in governance.
 </p>
@@ -76,7 +73,6 @@ RTI ensures transparency, accountability, and citizen participation in governanc
 Local issues improve faster when citizens act together. Community action strengthens
 social responsibility, reduces dependency, and creates lasting solutions.
 </p>
-
 <p>
 Organize clean drives, report safety hazards, participate in public meetings,
 and encourage lawful civic engagement.
@@ -93,26 +89,25 @@ Submit verified local issues. A structured complaint PDF will be generated for o
 </p>
 
 <form id="issueForm" enctype="multipart/form-data">
+  <label>Full Name *</label>
+  <input type="text" name="name" required placeholder="Enter full name">
 
-<label>Full Name *</label>
-<input type="text" name="name" required placeholder="Enter full name">
+  <label>Contact Number *</label>
+  <input type="text" name="phone" required placeholder="10-digit mobile number">
 
-<label>Contact Number *</label>
-<input type="text" name="phone" required placeholder="10-digit mobile number">
+  <label>Email *</label>
+  <input type="email" name="email" required placeholder="Enter email address">
 
-<label>Email *</label>
-<input type="email" name="email" required placeholder="Enter email address">
+  <label>City *</label>
+  <input type="text" name="city" required placeholder="Eg: Nashik, Pune">
 
-<label>City *</label>
-<input type="text" name="city" required placeholder="Eg: Nashik, Pune">
+  <label>Issue Description *</label>
+  <textarea name="description" required placeholder="Describe the issue clearly..."></textarea>
 
-<label>Issue Description *</label>
-<textarea name="description" required placeholder="Describe the issue clearly..."></textarea>
+  <label>Upload Image Proof *</label>
+  <input type="file" name="image" accept="image/*" required>
 
-<label>Upload Image Proof (required) *</label>
-<input type="file" name="image" accept="image/*" required>
-
-<button type="submit" class="btn saffron">Submit Complaint</button>
+  <button type="submit" class="btn saffron">Submit Complaint</button>
 </form>
 </section>
 
@@ -126,48 +121,8 @@ Submit verified local issues. A structured complaint PDF will be generated for o
   </div>
 </footer>
 
+<!-- ✅ ONLY ONE SCRIPT FILE -->
 <script src="script.js"></script>
-
-<!-- ===================== BACKEND CONNECTION SCRIPT ===================== -->
-<script>
-const form = document.getElementById("issueForm");
-
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  const formData = new FormData(form);
-
-  try {
-    const res = await fetch("http://localhost:3000/submit-complaint", {
-      method: "POST",
-      body: formData
-    });
-
-    const data = await res.json();
-
-    if (data.success) {
-      alert("✅ Complaint submitted successfully!");
-      form.reset();
-    } else {
-      alert("❌ " + data.error);
-    }
-  } catch (err) {
-    alert("⚠ Backend not running. Please start the server.");
-  }
-});
-</script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
