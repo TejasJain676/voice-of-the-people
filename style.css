@@ -68,14 +68,41 @@ body{font-family:Inter,Arial,sans-serif;margin:0;background:var(--bg);color:var(
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
-@media (min-width: 768px) {
-  #issueForm {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  #issueForm textarea,
-  #issueForm button,
-  #issueForm input[type="file"] {
-    grid-column: span 2;
-  }
+/* ===================== REPORT ISSUE FORM ===================== */
+#issueForm {
+  max-width: 600px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
 }
+
+#issueForm label {
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+#issueForm input,
+#issueForm textarea {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 15px;
+}
+
+#issueForm textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+#issueForm button {
+  margin-top: 10px;
+  align-self: flex-start;
+}
+
+/* ===================== POPUP STYLING ===================== */
+#pdfPopup a.btn {
+  display: inline-block;
+  margin-top: 12px;
+}
+
