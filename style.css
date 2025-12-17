@@ -67,3 +67,15 @@ body{font-family:Inter,Arial,sans-serif;margin:0;background:var(--bg);color:var(
   background-color: #f9f9f9 !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
+
+@media (min-width: 768px) {
+  #issueForm {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #issueForm textarea,
+  #issueForm button,
+  #issueForm input[type="file"] {
+    grid-column: span 2;
+  }
+}
