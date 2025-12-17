@@ -24,85 +24,29 @@
 </header>
 
 <main class="container">
+
 <h1>Raise Your Voice</h1>
-<p>Use lawful, structured and effective ways to report issues and seek justice.</p>
+<p>Report verified civic issues and receive a ready-to-file official complaint draft.</p>
 
-<div class="three-cols">
-
-<!-- ===================== PORTALS ===================== -->
-<div class="box">
-<h4>File Complaint on Official Portals</h4>
-
-<h4>CPGRAMS</h4>
-<p>Lodge grievances against Central or State Government departments.</p>
-<a href="https://pgportal.gov.in/" target="_blank">Visit CPGRAMS</a>
-
-<h4>National Consumer Helpline</h4>
-<p>Complaints regarding goods & services.</p>
-<a href="https://consumerhelpline.gov.in/" target="_blank">Visit NCH</a>
-
-<h4>SCORES (SEBI)</h4>
-<p>Investor complaints related to SEBI-regulated entities.</p>
-<a href="https://scores.sebi.gov.in/" target="_blank">Visit SCORES</a>
-
-<h4>Bima Bharosa (IRDAI)</h4>
-<p>Insurance-related grievances.</p>
-<a href="https://bimabharosa.irdai.gov.in/" target="_blank">Visit Bima Bharosa</a>
-</div>
-
-<!-- ===================== RTI ===================== -->
-<div class="box">
-<h4>RTI Application</h4>
-<p>
-RTI empowers citizens to seek information from government authorities.
-Submit RTI applications online through official portals of Central or State governments.
-</p>
-<p>
-After submitting the application and paying the ₹10 fee, you receive a registration number
-which can be used to track the status. Authorities must reply within 30 days.
-</p>
-<p>
-RTI ensures transparency, accountability, and citizen participation in governance.
-</p>
-</div>
-
-<!-- ===================== COMMUNITY ===================== -->
-<div class="box">
-<h4>Community Action</h4>
-<p>
-Local issues improve faster when citizens act together. Community action strengthens
-social responsibility, reduces dependency, and creates lasting solutions.
-</p>
-<p>
-Organize clean drives, report safety hazards, participate in public meetings,
-and encourage lawful civic engagement.
-</p>
-</div>
-
-</div>
-
-<!-- ===================== REPORT ISSUE ===================== -->
-<section id="report-issue" class="box" style="margin-top:40px;">
+<section class="box" style="margin-top:30px;">
 <h2>Report a Local Issue</h2>
-<p>
-Submit verified local issues. A structured complaint PDF will be generated for official use.
-</p>
 
 <form id="issueForm" enctype="multipart/form-data">
+
   <label>Full Name *</label>
-  <input type="text" name="name" required placeholder="Enter full name">
+  <input type="text" name="name" required>
 
   <label>Contact Number *</label>
-  <input type="text" name="phone" required placeholder="10-digit mobile number">
+  <input type="text" name="phone" required>
 
   <label>Email *</label>
-  <input type="email" name="email" required placeholder="Enter email address">
+  <input type="email" name="email" required>
 
   <label>City *</label>
-  <input type="text" name="city" required placeholder="Eg: Nashik, Pune">
+  <input type="text" name="city" required>
 
   <label>Issue Description *</label>
-  <textarea name="description" required placeholder="Describe the issue clearly..."></textarea>
+  <textarea name="description" required></textarea>
 
   <label>Upload Image Proof *</label>
   <input type="file" name="image" accept="image/*" required>
@@ -121,15 +65,16 @@ Submit verified local issues. A structured complaint PDF will be generated for o
   </div>
 </footer>
 
-<!-- ✅ ONLY ONE SCRIPT FILE -->
+<!-- ✅ ONE SCRIPT ONLY -->
 <script src="script.js"></script>
 
-<!-- PDF SUCCESS POPUP -->
+<!-- ✅ PDF SUCCESS POPUP -->
 <div id="pdfPopup" style="
   display:none;
   position:fixed;
   inset:0;
   background:rgba(0,0,0,0.6);
+  display:flex;
   justify-content:center;
   align-items:center;
   z-index:9999;
@@ -137,17 +82,17 @@ Submit verified local issues. A structured complaint PDF will be generated for o
   <div style="
     background:#fff;
     padding:25px;
-    max-width:400px;
+    max-width:420px;
     border-radius:8px;
     text-align:center;
   ">
     <h2>✅ Complaint Draft Ready</h2>
     <p>
-      Your complaint has been drafted successfully.<br>
-      Download the official PDF and submit it on the government portal.
+      Your official complaint has been prepared.<br>
+      Download the PDF and submit it on the relevant government portal.
     </p>
 
-    <a id="pdfDownloadLink" href="#" target="_blank" class="btn saffron">
+    <a id="pdfDownloadLink" class="btn saffron" target="_blank">
       Download Complaint PDF
     </a>
 
@@ -156,7 +101,5 @@ Submit verified local issues. A structured complaint PDF will be generated for o
   </div>
 </div>
 
-  
 </body>
 </html>
-
