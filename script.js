@@ -1,85 +1,10 @@
-// ===================== AQI & STATS (UNCHANGED) =====================
-const AQI_TOKEN = 'a3f9c940ae8b39b5b1e542cfea24aaaad1229fc3';
-
-const modalData = {
-  "aqi_delhi": { label: "AQI — Delhi", value: "--", explain: "Air quality index for Delhi.", actions: ["Use masks, reduce pollution"] },
-  "aqi_mumbai": { label: "AQI — Mumbai", value: "--", explain: "Air quality index for Mumbai.", actions: ["Plant trees, use public transport"] },
-  "aqi_kolkata": { label: "AQI — Kolkata", value: "--", explain: "Air quality index for Kolkata.", actions: ["Support clean energy"] },
-  "aqi_bengaluru": { label: "AQI — Bengaluru", value: "--", explain: "Air quality index for Bengaluru.", actions: ["Carpool, conserve energy"] },
-  "aqi_chennai": { label: "AQI — Chennai", value: "--", explain: "Air quality index for Chennai.", actions: ["Limit stubble burning, tree plantation"] },
-  "gdp": { label: "GDP per Capita", value: "--", explain: "India’s GDP per capita.", actions: ["Support local businesses, skill development"] },
-  "happiness": { label: "World Happiness Rank", value: "126/143", explain: "Well-being indicator.", actions: ["Community engagement, mental health initiatives"] }
-};
-
-function openCard(key) {
-  const m = modalData[key];
-  if (!m) return;
-  document.getElementById('modal-body').innerHTML = `
-    <h2>${m.label}</h2>
-    <p><strong>Current:</strong> ${m.value}</p>
-    <p>${m.explain}</p>
-    <ul><li>${m.actions.join('</li><li>')}</li></ul>
-  `;
-  document.getElementById('modal').hidden = false;
-}
-
-function closeModal() {
-  document.getElementById('modal').hidden = true;
-}
-
-async function fetchAQI(city) {
-  try {
-    const r = await fetch(`https://api.waqi.info/feed/${city}/?token=${AQI_TOKEN}`);
-    const j = await r.json();
-    return j?.status === "ok" ? j.data.aqi : null;
-  } catch {
-    return null;
-  }
-}
-
-async function fetchGDP() {
-  try {
-    const r = await fetch('https://api.worldbank.org/v2/country/IND/indicator/NY.GDP.PCAP.CD?format=json&per_page=1');
-    const j = await r.json();
-    return j?.[1]?.[0]?.value ? Math.round(j[1][0].value) : null;
-  } catch {
-    return null;
-  }
-}
-
-async function updateLive() {
-  const cities = {
-    aqi_delhi: "delhi",
-    aqi_mumbai: "mumbai",
-    aqi_kolkata: "kolkata",
-    aqi_bengaluru: "bangalore",
-    aqi_chennai: "chennai"
-  };
-
-  for (const key in cities) {
-    const aqi = await fetchAQI(cities[key]);
-    if (aqi !== null) {
-      const el = document.getElementById(`num-${key}`);
-      if (el) el.textContent = aqi;
-      modalData[key].value = aqi;
-    }
-  }
-
-  const gdp = await fetchGDP();
-  if (gdp !== null) {
-    const el = document.getElementById('num-gdp');
-    if (el) el.textContent = gdp;
-    modalData.gdp.value = gdp;
-  }
-}
-
-function closePdfPopup() {
-  document.getElementById('pdfPopup').style.display = 'none';
-}
-
-// ===================== FORM SUBMISSION (FIXED) =====================
+// ===================== FORM SUBMISSION =====================
 document.addEventListener('DOMContentLoaded', () => {
+
   const form = document.getElementById('issueForm');
+  const popup = document.getElementById('pdfPopup');
+  const pdfLink = document.getElementById('pdfDownloadLink');
+
   if (!form) return;
 
   form.addEventListener('submit', async (e) => {
@@ -87,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const fd = new FormData(form);
 
+    // Client-side validation
     if (
       !fd.get('name') ||
       !fd.get('phone') ||
@@ -113,19 +39,19 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      const popup = document.getElementById('pdfPopup');
-      const link = document.getElementById('pdfDownloadLink');
-
-      link.href = data.pdfUrl;
+      // ✅ Show popup + set PDF link
+      pdfLink.href = data.pdfUrl;
       popup.style.display = 'flex';
 
       form.reset();
 
-    } catch {
-      alert('❌ Cannot connect to backend. Is server running?');
+    } catch (err) {
+      alert('❌ Cannot connect to backend. Is the server running?');
     }
   });
 });
 
-window.onload = updateLive;
-
+// ===================== POPUP CLOSE =====================
+function closePdfPopup() {
+  document.getElementById('pdfPopup').style.display = 'none';
+}
