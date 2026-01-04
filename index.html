@@ -1,291 +1,65 @@
-/* =========================
-   GOOGLE FONT
-========================= */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voice of the People — India Edition</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-/* =========================
-   ROOT VARIABLES
-========================= */
-:root {
-  --saffron: #ff9933;
-  --green: #138808;
-  --white: #ffffff;
-  --navy: #0a1f44;
-  --light-bg: #f5f7fb;
-  --shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
+<header class="navbar">
+<div class="container nav-inner">
+<a href="index.html" class="logo">Voice<span>Of</span>The<span>People</span></a>
+<nav class="nav-buttons">
+<a class="nav-btn active" href="index.html">Home</a>
+<a class="nav-btn" href="government.html">Government Info</a>
+<a class="nav-btn" href="citizens.html">Civic Duties</a>
+<a class="nav-btn" href="voice.html">Raise Voice</a>
+<a class="nav-btn" href="facts.html">Facts That Matter</a>
+<a class="nav-btn" href="contact.html">Contact</a>
+</nav>
+</div>
+</header>
 
-/* =========================
-   GLOBAL
-========================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+<section class="hero hero-bg">
+<div class="hero-content container">
+<div class="hero-left">
+<h1>Rise, Speak, Act — Together We Shape India’s Future.</h1>
+<p class="lead">A youth-driven platform: live facts, actionable guides, and peaceful channels to hold power accountable.</p>
+<div class="cta-row">
+<a class="btn saffron" href="citizens.html">Learn More</a>
+<a class="btn green" href="facts.html">Take Action</a>
+</div>
+</div>
+<div class="hero-right">
+<img src="assets/hero_india_gate.svg" alt="India Gate" style="width: 80%; max-width: 700px; height: auto;">
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--light-bg);
-  color: #222;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
+</div>
+</div>
+</section>
 
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-}
+<main class="container">
+<section class="mission">
+<h2>Our Mission</h2>
+<p>Equip youth with verified facts, legal tools, and peaceful methods to drive local and national change.</p>
+<div class="three-cols">
+<div class="box"><h4>Inform</h4><p>Verified indicators, transparency reports, and actionable knowledge.</p></div>
+<div class="box"><h4>Act</h4><p>How to file complaints, RTI templates, lawful protests, and community initiatives.</p></div>
+<div class="box"><h4>Connect</h4><p>Official portals, civic communities, and student-led change networks.</p></div>
+</div>
+</section>
+</main>
 
-/* =========================
-   NAVBAR
-========================= */
-.navbar {
-  background: linear-gradient(90deg, var(--navy), #122b66);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: var(--shadow);
-}
+<footer class="footer">
+<div class="tricolor"></div>
+<div class="container footer-inner">
+<p>Designed by the Students of SNJB College of Engineering, Chandwad 🇮🇳</p>
+<p>© 2025 Voice of the People — Youth for Change</p>
+</div>
+</footer>
 
-.nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 18px 0;
-}
-
-.logo {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: white;
-  text-decoration: none;
-}
-
-.logo span {
-  color: var(--saffron);
-}
-
-.nav-buttons {
-  display: flex;
-  gap: 12px;
-}
-
-.nav-btn {
-  color: #eee;
-  text-decoration: none;
-  padding: 8px 14px;
-  border-radius: 20px;
-  transition: all 0.3s ease;
-}
-
-.nav-btn:hover,
-.nav-btn.active {
-  background: var(--saffron);
-  color: #000;
-}
-
-/* =========================
-   HERO SECTION
-========================= */
-.hero-bg {
-  background: linear-gradient(
-      rgba(10,31,68,0.85),
-      rgba(10,31,68,0.85)
-    ),
-    url("assets/india_pattern.png");
-  background-size: cover;
-  background-position: center;
-  color: white;
-  padding: 100px 0;
-}
-
-.hero-content {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 40px;
-  align-items: center;
-}
-
-.hero-left h1 {
-  font-size: 3rem;
-  line-height: 1.2;
-  margin-bottom: 20px;
-  animation: slideLeft 1s ease forwards;
-}
-
-.hero-left .lead {
-  font-size: 1.1rem;
-  opacity: 0.9;
-  margin-bottom: 30px;
-  animation: fadeUp 1.2s ease forwards;
-}
-
-.cta-row {
-  display: flex;
-  gap: 15px;
-  animation: fadeUp 1.5s ease forwards;
-}
-
-.btn {
-  padding: 12px 26px;
-  border-radius: 30px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.btn.saffron {
-  background: var(--saffron);
-  color: #000;
-}
-
-.btn.green {
-  background: var(--green);
-  color: white;
-}
-
-.btn:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow);
-}
-
-/* HERO IMAGE FLOAT */
-.hero-right img {
-  animation: float 4s ease-in-out infinite;
-}
-
-/* =========================
-   MISSION SECTION
-========================= */
-.mission {
-  padding: 80px 0;
-  text-align: center;
-}
-
-.mission h2 {
-  font-size: 2.4rem;
-  margin-bottom: 15px;
-  color: var(--navy);
-}
-
-.mission p {
-  max-width: 700px;
-  margin: auto;
-  opacity: 0.8;
-}
-
-.three-cols {
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-}
-
-.box {
-  background: white;
-  padding: 30px;
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  transition: all 0.4s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.box::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, transparent, rgba(255,153,51,0.2));
-  opacity: 0;
-  transition: 0.4s;
-}
-
-.box:hover::before {
-  opacity: 1;
-}
-
-.box:hover {
-  transform: translateY(-10px);
-}
-
-.box h4 {
-  font-size: 1.4rem;
-  margin-bottom: 10px;
-  color: var(--navy);
-}
-
-/* =========================
-   FOOTER
-========================= */
-.footer {
-  background: #0a1f44;
-  color: white;
-  margin-top: 60px;
-}
-
-.tricolor {
-  height: 6px;
-  background: linear-gradient(90deg, var(--saffron), white, var(--green));
-}
-
-.footer-inner {
-  padding: 30px 0;
-  text-align: center;
-  font-size: 0.95rem;
-  opacity: 0.85;
-}
-
-/* =========================
-   ANIMATIONS
-========================= */
-@keyframes slideLeft {
-  from { opacity: 0; transform: translateX(-60px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-@media (max-width: 900px) {
-  .hero-content {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-
-  .cta-row {
-    justify-content: center;
-  }
-}
-// Simple scroll reveal
-const observer = new IntersectionObserver(
-  entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = 1;
-        entry.target.style.transform = "translateY(0)";
-      }
-    });
-  },
-  { threshold: 0.15 }
-);
-
-// Apply to sections
-document.querySelectorAll(".box, .mission h2, .mission p").forEach(el => {
-  el.style.opacity = 0;
-  el.style.transform = "translateY(40px)";
-  el.style.transition = "0.8s ease";
-  observer.observe(el);
-});
+<script src="script.js"></script>
+</body>
+</html>
 
