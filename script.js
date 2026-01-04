@@ -48,9 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (err) {
       alert('❌ Cannot connect to backend. Is the server running?');
     }
-    // Simple scroll reveal
-
-
   });
 });
 
@@ -58,5 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
 function closePdfPopup() {
   document.getElementById('pdfPopup').style.display = 'none';
 }
+
 
 
