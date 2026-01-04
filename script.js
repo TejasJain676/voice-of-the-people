@@ -48,6 +48,27 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (err) {
       alert('❌ Cannot connect to backend. Is the server running?');
     }
+    // Simple scroll reveal
+const observer = new IntersectionObserver(
+  entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = 1;
+        entry.target.style.transform = "translateY(0)";
+      }
+    });
+  },
+  { threshold: 0.15 }
+);
+
+// Apply to sections
+document.querySelectorAll(".box, .mission h2, .mission p").forEach(el => {
+  el.style.opacity = 0;
+  el.style.transform = "translateY(40px)";
+  el.style.transition = "0.8s ease";
+  observer.observe(el);
+});
+
   });
 });
 
@@ -55,3 +76,4 @@ document.addEventListener('DOMContentLoaded', () => {
 function closePdfPopup() {
   document.getElementById('pdfPopup').style.display = 'none';
 }
+
